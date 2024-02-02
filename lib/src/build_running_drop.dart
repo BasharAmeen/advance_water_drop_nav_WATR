@@ -35,6 +35,7 @@ class BuildRunningDrop extends StatelessWidget {
             )
             .value,
         child: Stack(
+          textDirection: Directionality.of(context),
           alignment: Alignment.topCenter,
           children: <Widget>[
             Opacity(
