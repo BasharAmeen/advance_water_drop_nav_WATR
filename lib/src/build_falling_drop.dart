@@ -28,7 +28,9 @@ class BuildFallingDrop extends StatelessWidget {
               size: Size.zero,
               painter: WaterDropPainter(
                 color,
-                Directionality.of(context),
+                Directionality.of(context) == TextDirection.rtl
+                    ? TextDirection.ltr
+                    : TextDirection.rtl,
               ),
             ),
           ),
