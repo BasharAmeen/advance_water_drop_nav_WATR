@@ -19,17 +19,19 @@ class BuildFallingDrop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: itemWidth,
-      child: UnconstrainedBox(
-        child: SizedBox(
-          width: width,
-          height: height,
-          child: CustomPaint(
-            size: Size.zero,
-            painter: WaterDropPainter(color),
+        width: itemWidth,
+        child: UnconstrainedBox(
+          child: SizedBox(
+            width: width,
+            height: height,
+            child: CustomPaint(
+              size: Size.zero,
+              painter: WaterDropPainter(
+                color,
+                Directionality.of(context),
+              ),
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
