@@ -21,7 +21,7 @@ class BuildRunningDrop extends StatelessWidget {
   Widget build(BuildContext context) {
     final double deviceWidth = MediaQuery.of(context).size.width;
     final double maxElementWidth = (deviceWidth / 4) - 4;
-    final bool isRTL = !(Directionality.of(context) == TextDirection.rtl);
+    final bool isRTL = (Directionality.of(context) == TextDirection.rtl);
     return AnimatedBuilder(
       animation: controller,
       builder: (_, __) => Transform.translate(

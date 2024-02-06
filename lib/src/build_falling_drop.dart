@@ -21,6 +21,7 @@ class BuildFallingDrop extends StatelessWidget {
     return SizedBox(
         width: itemWidth,
         child: UnconstrainedBox(
+          textDirection: Directionality.of(context),
           child: SizedBox(
             width: width,
             height: height,
@@ -28,9 +29,7 @@ class BuildFallingDrop extends StatelessWidget {
               size: Size.zero,
               painter: WaterDropPainter(
                 color,
-                Directionality.of(context) == TextDirection.rtl
-                    ? TextDirection.ltr
-                    : TextDirection.rtl,
+                Directionality.of(context),
               ),
             ),
           ),
