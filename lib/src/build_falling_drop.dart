@@ -21,7 +21,6 @@ class BuildFallingDrop extends StatelessWidget {
     return SizedBox(
         width: itemWidth,
         child: UnconstrainedBox(
-          textDirection: Directionality.of(context),
           child: SizedBox(
             width: width,
             height: height,
