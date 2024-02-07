@@ -10,7 +10,7 @@ class WaterDropPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Path path = Path();
 
-    double widthFactor = 1;
+    double widthFactor = textDirection == TextDirection.rtl ? -1 : 1;
 
     path.cubicTo(
       size.width * 0.239841 * widthFactor,
