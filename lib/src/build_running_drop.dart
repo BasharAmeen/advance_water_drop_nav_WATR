@@ -19,6 +19,7 @@ class BuildRunningDrop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // comment
     final double deviceWidth = MediaQuery.of(context).size.width;
     final double maxElementWidth = (deviceWidth / 4) - 4;
     final bool isRTL = (Directionality.of(context) == TextDirection.rtl);
