@@ -19,22 +19,14 @@ class BuildRunningDrop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // comment
     final double deviceWidth = MediaQuery.of(context).size.width;
     final double maxElementWidth = (deviceWidth / 4) - 4;
-    final bool isRTL = (Directionality.of(context) == TextDirection.rtl);
     return AnimatedBuilder(
       animation: controller,
       builder: (_, __) => Transform.translate(
         offset: Tween<Offset>(
-                begin: Offset(
-                    (isRTL ? itemCount - 1 - previousIndex : previousIndex) *
-                        maxElementWidth,
-                    0),
-                end: Offset(
-                    (isRTL ? itemCount - 1 - selectedIndex : selectedIndex) *
-                        maxElementWidth,
-                    0))
+                begin: Offset(previousIndex * maxElementWidth, 0),
+                end: Offset(selectedIndex * maxElementWidth, 0))
             .animate(
               CurvedAnimation(
                 parent: controller,
@@ -43,7 +35,6 @@ class BuildRunningDrop extends StatelessWidget {
             )
             .value,
         child: Stack(
-          textDirection: Directionality.of(context),
           alignment: Alignment.topCenter,
           children: <Widget>[
             Opacity(
@@ -99,6 +90,7 @@ class BuildRunningDrop extends StatelessWidget {
               )
                   .animate(CurvedAnimation(
                     parent: controller,
+                    // 46
                     curve: const Interval(0.40, 0.70),
                   ))
                   .value,
@@ -107,6 +99,7 @@ class BuildRunningDrop extends StatelessWidget {
                 height: 10.0,
                 decoration: BoxDecoration(
                   color: controller.value > 0.65 ? Colors.transparent : color,
+                  // color: Colors.amber,
                   shape: BoxShape.circle,
                 ),
               ),
