@@ -25,8 +25,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace 'com.example.advance_water_drop_nav_bar'
     compileSdkVersion 31
-    namespace 'com.example.namespace'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
