@@ -17,6 +17,7 @@ class BuildIconButton extends StatelessWidget {
   final double barHeight;
   final String text;
   final TextStyle? textStyle;
+  final double padding;
 
   double _bottomIconScale() => seletedIndex == index
       ? Tween<double>(begin: 1.0, end: 0.7)
@@ -63,13 +64,14 @@ class BuildIconButton extends StatelessWidget {
     required this.text,
     this.textStyle,
     Key? key,
+    required this.padding,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceWidth = mediaQueryData.size.width;
-    final double maxWidth = (deviceWidth / 4) - 3;
+    final double maxWidth = (deviceWidth / 4) - padding;
 
     return GestureDetector(
       onTap: onPressed,

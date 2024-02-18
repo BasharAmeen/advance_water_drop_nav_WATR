@@ -32,7 +32,7 @@ class WaterDropNavBar extends StatefulWidget {
   /// [MediaQuery.of(context).padding.bottom] value.
   final double? bottomPadding;
   final double? topPadding;
-
+  final double padding;
   const WaterDropNavBar({
     required this.barItems,
     required this.selectedIndex,
@@ -44,6 +44,7 @@ class WaterDropNavBar extends StatefulWidget {
     this.topPadding,
     Color? inactiveIconColor,
     Key? key,
+    required this.padding,
   })  : inactiveIconColor = inactiveIconColor ?? waterDropColor,
         assert(barItems.length > 1, 'You must provide minimum 2 bar items'),
         assert(barItems.length < 5, 'Maximum bar items count is 4'),
@@ -124,6 +125,7 @@ class WaterDropNavBarState extends State<WaterDropNavBar>
                           text: item.text,
                           textStyle: item.textStyle,
                           onPressed: () => _onTap(index),
+                          padding: widget.padding,
                         );
                       },
                     ).toList(),
@@ -131,12 +133,12 @@ class WaterDropNavBarState extends State<WaterDropNavBar>
                 ),
               )),
           BuildRunningDrop(
-            itemCount: items.length,
-            controller: _controller,
-            selectedIndex: selectedIndex,
-            previousIndex: _previousIndex,
-            color: dropColor,
-          )
+              itemCount: items.length,
+              controller: _controller,
+              selectedIndex: selectedIndex,
+              previousIndex: _previousIndex,
+              color: dropColor,
+              padding: widget.padding)
         ],
       ),
     );
