@@ -8,6 +8,7 @@ class BuildRunningDrop extends StatelessWidget {
   final int previousIndex;
   final Color color;
   final int itemCount;
+  final double padding;
   const BuildRunningDrop({
     Key? key,
     required this.controller,
@@ -15,12 +16,13 @@ class BuildRunningDrop extends StatelessWidget {
     required this.previousIndex,
     required this.color,
     required this.itemCount,
+    required this.padding,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final double deviceWidth = MediaQuery.of(context).size.width;
-    final double maxElementWidth = (deviceWidth / 4) - 4;
+    final double maxElementWidth = (deviceWidth / 4) - padding;
     return AnimatedBuilder(
       animation: controller,
       builder: (_, __) => Transform.translate(

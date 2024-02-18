@@ -46,7 +46,7 @@ class BuildIconButton extends StatelessWidget {
         ),
       )
       .value;
-
+  final double padding;
   const BuildIconButton({
     required this.onPressed,
     required this.controller,
@@ -61,6 +61,7 @@ class BuildIconButton extends StatelessWidget {
     required this.bottomPadding,
     required this.barHeight,
     required this.text,
+    required padding,
     this.textStyle,
     Key? key,
   }) : super(key: key);
@@ -69,7 +70,7 @@ class BuildIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double deviceWidth = mediaQueryData.size.width;
-    final double maxWidth = (deviceWidth / 4) - 3;
+    final double maxWidth = (deviceWidth / 4) - padding;
 
     return GestureDetector(
       onTap: onPressed,
