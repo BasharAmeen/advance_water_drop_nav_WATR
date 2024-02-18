@@ -61,7 +61,7 @@ class BuildIconButton extends StatelessWidget {
     required this.bottomPadding,
     required this.barHeight,
     required this.text,
-    required padding,
+    required this.padding,
     this.textStyle,
     Key? key,
   }) : super(key: key);
